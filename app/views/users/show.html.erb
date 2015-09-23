@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Coffees:</strong>
+  <%= @user.coffees %>
+</p>
+
+<form method="POST" action="/users/<%= @user.id %>/coffees">
+  <input type="submit" value="Add coffee"></input>
+</form>
+
+<p>
+  <strong>Money:</strong>
+  <%= @user.money %>
+  cents
+</p>
+
+<form method="POST" action="/users/<%= @user.id %>/money">
+  <input type="number" id="user_money" name="user[money]"></input>
+  <input type="submit" value="Add money"></input>
+</form>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

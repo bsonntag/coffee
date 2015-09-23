@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  name: 'John'
+  coffees: 1
+  money: 1
+
+jane:
+  name: 'Jane'
+  coffees: 1
+  money: 1
