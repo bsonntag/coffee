@@ -1,3 +1,31 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.User-info {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 0px;
+}
+
+.User-line {
+  display: flex;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.User-text {
+  padding: 10px;
+
+  font-size: 40px;
+}
+
+.User-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10px 0px;
+}
+
+.User-action {
+  padding: 10px;
+}

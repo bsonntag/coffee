@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="User-info">
+  <div class="User-line">
+    <%= image_tag "user.png" %>
+    <p class="User-text"><%= @user.name %></p>
+  </div>
 
-<p>
-  <strong>Coffees:</strong>
-  <%= @user.coffees %>
-</p>
+  <div class="User-line">
+    <%= image_tag "mug.png" %>
+    <p class="User-text"><%= @user.coffees %></p>
+  </div>
 
-<form method="POST" action="/users/<%= @user.id %>/coffees">
-  <input type="submit" value="Add coffee"></input>
-</form>
+  <div class="User-line">
+    <%= image_tag "coin.png" %>
+    <p class="User-text"><%= number_to_currency(@user.money / 100.0, unit: '') %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Money:</strong>
-  <%= @user.money %>
-  cents
-</p>
+<div class="User-actions">
+  <form class="User-action" method="POST" action="/users/<%= @user.id %>/money">
+    <input type="number" id="user_money" name="user[money]"></input>
+    <input type="submit" value="Add money"></input>
+  </form>
 
-<form method="POST" action="/users/<%= @user.id %>/money">
-  <input type="number" id="user_money" name="user[money]"></input>
-  <input type="submit" value="Add money"></input>
-</form>
+  <form class="User-action" method="POST" action="/users/<%= @user.id %>/coffees">
+    <input type="submit" value="Add coffee"></input>
+  </form>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="User-action" >
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+  <div>
+</div>

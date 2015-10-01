@@ -1,0 +1,12 @@
+.Page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Page-title {
+  padding: 20px;
+
+  font-size: 60px;
+  line-height: 60px;
+}
