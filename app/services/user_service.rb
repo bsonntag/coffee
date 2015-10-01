@@ -25,7 +25,7 @@ class UserService
 
   def self.add_coffee(user_id)
     user = User.find(user_id)
-    user.coffee += 1
+    user.coffees += 1
     user.save
     user
   end
