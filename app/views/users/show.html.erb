@@ -1,25 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <div class="User-info">
-  <div class="User-line">
+  <div class="User-line User-name">
     <%= image_tag "user.png" %>
     <p class="User-text"><%= @user.name %></p>
   </div>
 
-  <div class="User-line">
+  <div class="User-line User-coffees">
     <%= image_tag "mug.png" %>
     <p class="User-text"><%= @user.coffees %></p>
   </div>
 
-  <div class="User-line">
+  <div class="User-line User-money">
     <%= image_tag "coin.png" %>
     <p class="User-text"><%= number_to_currency(@user.money / 100.0, unit: '') %></p>
+  </div>
+
+  <div class="User-line User-balance">
+    <%= image_tag "chart.png" %>
+    <p class="User-text"><%= number_to_currency(@user.balance / 100.0, unit: '') %></p>
   </div>
 </div>
 
 <div class="User-actions">
   <form class="User-action" method="POST" action="/users/<%= @user.id %>/money">
-    <input type="number" id="user_money" name="user[money]"></input>
+    <input class="Input-number" type="number" id="user_money" name="user[money]" value="50"></input>
     <input type="submit" value="Add money"></input>
   </form>
 
@@ -28,7 +33,7 @@
   </form>
 
   <div class="User-action" >
-    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Edit', edit_user_path(@user.to_model) %> |
     <%= link_to 'Back', users_path %>
   <div>
 </div>

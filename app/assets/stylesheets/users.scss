@@ -1,31 +1,50 @@
-.User-info {
-  display: flex;
-  align-items: center;
+$users-table-side-padding: 60px;
+$users-row-border-width: 1px;
+$users-row-border-color: #999;
+$users-row-hover-color: #eee;
 
+.Users {
   padding: 10px 0px;
 }
 
-.User-line {
-  display: flex;
-  align-items: center;
-
-  padding: 10px;
+.Users-table {
+  border-collapse: collapse;
 }
 
-.User-text {
-  padding: 10px;
+.Users-header {
+  > th {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
 
-  font-size: 40px;
+  > th:first-child {
+    padding-left: $users-table-side-padding;
+  }
+
+  > th:last-child {
+    padding-right: $users-table-side-padding;
+  }
 }
 
-.User-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.Users-row {
+  border: solid $users-row-border-color;
+  border-width: $users-row-border-width 0;
 
-  padding: 10px 0px;
-}
+  &:hover {
+    background-color: $users-row-hover-color;
+    cursor: pointer;
+  }
 
-.User-action {
-  padding: 10px;
+  > td {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  > td:first-child {
+    padding-left: $users-table-side-padding;
+  }
+
+  > td:last-child {
+    padding-right: $users-table-side-padding;
+  }
 }

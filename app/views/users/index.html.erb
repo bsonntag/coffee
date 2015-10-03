@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Coffees</th>
-      <th>Money</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.coffees %></td>
-        <td><%= user.money %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+<div class="Users">
+  <table class="Users-table">
+    <thead>
+      <tr class="Users-header">
+        <th>Name</th>
+        <th>Coffees</th>
+        <th>Money</th>
+        <th>Balance</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr class="Users-row" onclick="goTo('<%= user_path(user) %>')">
+          <td><%= user.name %></td>
+          <td><%= user.coffees %></td>
+          <td><%= number_to_currency(user.money / 100.0, unit: '€') %></td>
+          <td><%= number_to_currency(user.balance / 100.0, unit: '€') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

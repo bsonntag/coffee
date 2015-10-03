@@ -1,3 +1,6 @@
+$page-title-padding: 20px;
+$page-title-fontsize: 60px;
+
 .Page {
   display: flex;
   flex-direction: column;
@@ -5,8 +8,9 @@
 }
 
 .Page-title {
-  padding: 20px;
+  padding: $page-title-padding;
 
-  font-size: 60px;
-  line-height: 60px;
+  font-size: $page-title-fontsize;
+  line-height: $page-title-fontsize;
+  text-align: center;
 }
