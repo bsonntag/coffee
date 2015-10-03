@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = UserService.update(user_id, user_params)
 
     respond_to do |format|
-      if @user.persisted?
+      if @user.valid?
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @user = UserService.add_coffee(user_id)
 
     respond_to do |format|
-      if @user.persisted?
+      if @user.valid?
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     @user = UserService.add_money(user_id, user_params[:money].to_i)
 
     respond_to do |format|
-      if @user.persisted?
+      if @user.valid?
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
