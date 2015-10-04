@@ -1,0 +1,26 @@
+<div class="Coffees">
+  <% if @coffees.empty? %>
+    <h2 class="Coffees-title"><%= @user.name %> has no coffees</h2>
+  <% else %>
+    <h2 class="Coffees-title">Coffees of <%= @user.name %></h2>
+    <table class="Coffees-table">
+      <thead>
+        <tr class="Coffees-header">
+          <th>Time</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @coffees.each do |coffee| %>
+          <tr class="Coffees-row">
+            <td><%= coffee.time %></td>
+            <td><%= coffee.date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="Coffees-actions">
+    <%= link_to 'Back', user_path(@user)  %>
+  </div>
+</div>

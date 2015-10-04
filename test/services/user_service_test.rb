@@ -27,9 +27,9 @@ class UserServiceTest < ActiveSupport::TestCase
   end
 
   test 'UserService.update updates a user' do
-    user = UserService.update(@john.id, { coffees: 3 })
+    user = UserService.update(@john.id, { money: 3 })
     assert user == @john
-    assert user.coffees == 3
+    assert user.money == 3
     assert user.persisted?
   end
 

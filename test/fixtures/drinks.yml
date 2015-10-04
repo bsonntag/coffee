@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  price: 1
+  category: coffee
+
+two:
+  user_id: 1
+  price: 1
+  category: water

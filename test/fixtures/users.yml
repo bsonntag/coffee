@@ -2,10 +2,8 @@
 
 john:
   name: 'John'
-  coffees: 1
   money: 1
 
 jane:
   name: 'Jane'
-  coffees: 1
   money: 1

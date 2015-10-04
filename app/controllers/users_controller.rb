@@ -43,31 +43,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_coffee
-    @user = UserService.add_coffee(user_id)
-
-    respond_to do |format|
-      if @user.valid?
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def add_money
     @user = UserService.add_money(user_id, user_params[:money].to_i)
 
     respond_to do |format|
-      if @user.valid?
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      format.json { render :show, status: :ok, location: @user }
     end
   end
 
@@ -78,6 +59,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :coffees, :money)
+    params.require(:user).permit(:name, :money)
   end
 end

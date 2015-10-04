@@ -15,7 +15,7 @@
       <% @users.each do |user| %>
         <tr class="Users-row" onclick="goTo('<%= user_path(user) %>')">
           <td><%= user.name %></td>
-          <td><%= user.coffees %></td>
+          <td><%= user.coffees.count %></td>
           <td><%= number_to_currency(user.money / 100.0, unit: '€') %></td>
           <td><%= number_to_currency(user.balance / 100.0, unit: '€') %></td>
         </tr>

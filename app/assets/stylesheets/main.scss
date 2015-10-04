@@ -1,5 +1,6 @@
-$page-title-padding: 20px;
+$page-title-padding: 10px;
 $page-title-fontsize: 60px;
+$page-title-lineheight: 1.2;
 
 .Page {
   display: flex;
@@ -11,6 +12,6 @@ $page-title-fontsize: 60px;
   padding: $page-title-padding;
 
   font-size: $page-title-fontsize;
-  line-height: $page-title-fontsize;
+  line-height: $page-title-lineheight;
   text-align: center;
 }

@@ -23,13 +23,6 @@ class UserService
     user
   end
 
-  def self.add_coffee(user_id)
-    user = User.find(user_id)
-    user.coffees += 1
-    user.save
-    user
-  end
-
   def self.add_money(user_id, money)
     user = User.find(user_id)
     user.money += money

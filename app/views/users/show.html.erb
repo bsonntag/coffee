@@ -6,19 +6,19 @@
     <p class="User-text"><%= @user.name %></p>
   </div>
 
-  <div class="User-line User-coffees">
+  <div class="User-line User-coffees" onclick="goTo('<%= user_coffees_path(@user) %>')">
     <%= image_tag "mug.png" %>
-    <p class="User-text"><%= @user.coffees %></p>
+    <p class="User-text"><%= @user.coffees.count %></p>
   </div>
 
   <div class="User-line User-money">
     <%= image_tag "coin.png" %>
-    <p class="User-text"><%= number_to_currency(@user.money / 100.0, unit: '') %></p>
+    <p class="User-text"><%= number_to_currency(@user.money / 100.0, unit: '€') %></p>
   </div>
 
   <div class="User-line User-balance">
-    <%= image_tag "chart.png" %>
-    <p class="User-text"><%= number_to_currency(@user.balance / 100.0, unit: '') %></p>
+    <%= image_tag "credit.png" %>
+    <p class="User-text"><%= number_to_currency(@user.balance / 100.0, unit: '€') %></p>
   </div>
 </div>
 
@@ -28,7 +28,7 @@
     <input type="submit" value="Add money"></input>
   </form>
 
-  <form class="User-action" method="POST" action="/users/<%= @user.id %>/coffees">
+  <form class="User-action" method="POST" action="<%= user_coffees_path(@user) %>">
     <input type="submit" value="Add coffee"></input>
   </form>
 
