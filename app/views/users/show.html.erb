@@ -19,12 +19,16 @@
 
 <div class="User-actions">
   <form class="User-action" method="POST" action="/users/<%= @user.id %>/money">
-    <input class="Input-number" type="number" id="user_money" name="user[money]" value="50"></input>
-    <input type="submit" value="Add money"></input>
+    <div class="input-group">
+      <input class="form-control" type="number" id="user_money" name="user[money]" value="50"></input>
+      <span class="input-group-btn">
+        <input class="btn btn-default" type="submit" value="Add money"></input>
+      </span>
+    </div>
   </form>
 
   <form class="User-action" method="POST" action="<%= user_coffees_path(@user) %>">
-    <input type="submit" value="Add coffee"></input>
+    <input class="btn btn-default" type="submit" value="Add coffee"></input>
   </form>
 
   <div class="User-action" >

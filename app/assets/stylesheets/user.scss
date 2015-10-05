@@ -1,23 +1,29 @@
+$user-padding: 10px;
+$user-text-padding: 6px;
+$user-text-fontsize: 36px;
+$user-actions-width: 200px;
+
 .User-info {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 
-  padding: 10px 0px;
+  padding: $user-padding 0;
 }
 
 .User-line {
   display: flex;
   align-items: center;
 
-  padding: 10px;
+  padding: $user-padding;
 }
 
 .User-text {
-  padding: 6px 10px;
+  padding: $user-text-padding $user-padding;
 
-  font-size: 36px;
+  font-size: $user-text-fontsize;
+  margin: 0;
 }
 
 .User-coffees {
@@ -29,9 +35,10 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 10px 0px;
+  width: $user-actions-width;
+  padding: $user-padding 0;
 }
 
 .User-action {
-  padding: 10px;
+  padding: $user-padding;
 }
