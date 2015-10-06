@@ -6,9 +6,9 @@
     <p class="User-text"><%= @user.name %></p>
   </div>
 
-  <div class="User-line User-balance">
+  <div class="User-line User-credit">
     <%= image_tag "credit.png" %>
-    <p class="User-text"><%= number_to_currency(@user.balance / 100.0, unit: '€') %></p>
+    <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>
 
   <div class="User-line User-coffees" onclick="goTo('<%= user_coffees_path(@user) %>')">
