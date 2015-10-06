@@ -6,7 +6,7 @@
     <p class="User-text"><%= @user.name %></p>
   </div>
 
-  <div class="User-line User-credit">
+  <div class="User-line User-credit <%= (@user.credit < 0 ? 'User--warn' : '') %>">
     <%= image_tag "credit.png" %>
     <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>

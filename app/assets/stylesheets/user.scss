@@ -2,6 +2,7 @@ $user-padding: 10px;
 $user-text-padding: 6px;
 $user-text-fontsize: 36px;
 $user-actions-width: 200px;
+$user-warn-color: #D9534F;
 
 .User-info {
   display: flex;
@@ -41,4 +42,8 @@ $user-actions-width: 200px;
 
 .User-action {
   padding: $user-padding;
+}
+
+.User--warn {
+  color: $user-warn-color;
 }
