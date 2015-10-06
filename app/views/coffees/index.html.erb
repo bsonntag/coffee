@@ -8,6 +8,7 @@
         <tr class="Coffees-header">
           <th>Time</th>
           <th>Date</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +16,11 @@
           <tr class="Coffees-row">
             <td><%= coffee.time %></td>
             <td><%= coffee.date %></td>
+            <td>
+              <%= link_to(user_coffee_path(@user, coffee), method: :delete) do %>
+                <span class="Coffees-remove glyphicon glyphicon-remove-circle"></span>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

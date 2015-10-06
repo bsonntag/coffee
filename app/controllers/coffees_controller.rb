@@ -14,9 +14,18 @@ class CoffeesController < ApplicationController
     end
   end
 
+  def destroy
+    coffee = DrinkService.remove(coffee_id)
+    redirect_to user_coffees_url(coffee.user)
+  end
+
   private
 
   def user_id
     params[:user_id]
+  end
+
+  def coffee_id
+    params[:id]
   end
 end
