@@ -11,9 +11,14 @@
     <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>
 
-  <div class="User-line User-coffees" onclick="goTo('<%= user_drinks_path(@user) %>')">
+  <div class="User-line User-drinks" onclick="goTo('<%= user_drinks_path(@user) %>')">
     <i class="fa fa-3x fa-coffee"></i>
     <p class="User-text"><%= @user.coffees.count %></p>
+  </div>
+
+  <div class="User-line User-drinks" onclick="goTo('<%= user_drinks_path(@user) %>')">
+    <i class="fa fa-3x fa-tint"></i>
+    <p class="User-text"><%= @user.waters.count %></p>
   </div>
 </div>
 
@@ -22,14 +27,19 @@
     <div class="input-group">
       <input class="form-control" type="number" id="user_money" name="user[money]" value="50"></input>
       <span class="input-group-btn">
-        <input class="btn btn-default" type="submit" value="Add money"></input>
+        <input class="btn btn-default" type="submit" value="Add Money"></input>
       </span>
     </div>
   </form>
 
   <form class="User-action" method="POST" action="<%= user_drinks_path(@user) %>">
     <input type="hidden" id="drink_category" name="drink[category]" value="coffee"></input>
-    <input class="btn btn-default" type="submit" value="Add coffee"></input>
+    <input class="btn btn-default" type="submit" value="Add Coffee"></input>
+  </form>
+
+  <form class="User-action" method="POST" action="<%= user_drinks_path(@user) %>">
+    <input type="hidden" id="drink_category" name="drink[category]" value="water"></input>
+    <input class="btn btn-default" type="submit" value="Add Water"></input>
   </form>
 
   <div class="User-action" >

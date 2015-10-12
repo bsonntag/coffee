@@ -15,7 +15,13 @@
       <tbody>
         <% @drinks.each do |drink| %>
           <tr class="Drinks-row">
-            <td><%= drink.category %></td>
+            <% if drink.category == 'coffee' %>
+              <td><i class="fa fa-coffee"></i></td>
+            <% elsif drink.category == 'water' %>
+              <td><i class="fa fa-tint"></i></td>
+            <% else %>
+              <td><%= drink.category %></td>
+            <% end %>
             <td><%= drink.time %></td>
             <td><%= drink.date %></td>
             <td>
