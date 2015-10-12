@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: { class: 'Form' }) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="Form-group input-group">
+    <%= f.label :name, class: 'Form-label input-group-addon' %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :money %><br>
-    <%= f.number_field :money %>
+  <div class="Form-group input-group">
+    <%= f.label :money, class: 'Form-label input-group-addon' %>
+    <%= f.number_field :money, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="Form-actions">
+    <%= f.submit class: 'Form-action btn btn-primary' %>
+    <% if(@user.new_record?) %>
+      <%= link_to 'Cancel', users_path, class: "Form-action btn btn-danger" %>
+    <% else %>
+      <%= link_to 'Cancel', @user, class: "Form-action btn btn-danger" %>
+    <% end %>
   </div>
 <% end %>

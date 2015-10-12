@@ -1,0 +1,30 @@
+$form-padding: 10px;
+$form-label-width: 70px;
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  padding: $form-padding 0;
+}
+
+.Form-group {
+  width: 100%;
+  padding: $form-padding 0;
+}
+
+.Form-label {
+  width: $form-label-width;
+  text-align: right;
+}
+
+.Form-actions {
+  align-self: flex-end;
+  display: flex;
+  width: 100%;
+  padding: $form-padding 0;
+}
+
+.Form-action {
+  flex: 1;
+  margin: 0 $form-padding;
+}
