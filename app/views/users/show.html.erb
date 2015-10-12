@@ -2,17 +2,17 @@
 
 <div class="User-info">
   <div class="User-line User-name">
-    <%= image_tag "user.png" %>
+    <i class="fa fa-3x fa-user"></i>
     <p class="User-text"><%= @user.name %></p>
   </div>
 
   <div class="User-line User-credit <%= (@user.credit < 0 ? 'User--warn' : '') %>">
-    <%= image_tag "credit.png" %>
+    <i class="fa fa-3x fa-credit-card"></i>
     <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>
 
   <div class="User-line User-coffees" onclick="goTo('<%= user_drinks_path(@user) %>')">
-    <%= image_tag "mug.png" %>
+    <i class="fa fa-3x fa-coffee"></i>
     <p class="User-text"><%= @user.coffees.count %></p>
   </div>
 </div>
