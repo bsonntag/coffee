@@ -1,0 +1,34 @@
+<div class="Drinks">
+  <% if @drinks.empty? %>
+    <h2 class="Drinks-title"><%= @user.name %> has no drinks.</h2>
+  <% else %>
+    <h2 class="Drinks-title">Drinks of <%= @user.name %></h2>
+    <table class="Drinks-table">
+      <thead>
+        <tr class="Drinks-header">
+          <th>Type</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @drinks.each do |drink| %>
+          <tr class="Drinks-row">
+            <td><%= drink.category %></td>
+            <td><%= drink.time %></td>
+            <td><%= drink.date %></td>
+            <td>
+              <%= link_to(user_drink_path(@user, drink), method: :delete) do %>
+                <span class="Drinks-remove glyphicon glyphicon-remove-circle"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="Drinks-actions">
+    <%= link_to 'Back', user_path(@user)  %>
+  </div>
+</div>

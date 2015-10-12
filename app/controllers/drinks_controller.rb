@@ -1,12 +1,12 @@
-class CoffeesController < ApplicationController
+class DrinksController < ApplicationController
   def index
     @user = UserService.find(user_id)
-    @coffees = DrinkService.coffees_from(@user)
+    @drinks = DrinkService.drinks_from(@user)
   end
 
   def create
     user = UserService.find(user_id)
-    DrinkService.add_coffee(user)
+    DrinkService.add_drink(user, drink_params)
 
     respond_to do |format|
       format.html { redirect_to user, notice: 'User was successfully updated.' }
@@ -15,8 +15,8 @@ class CoffeesController < ApplicationController
   end
 
   def destroy
-    coffee = DrinkService.remove(coffee_id)
-    redirect_to user_coffees_url(coffee.user)
+    drink = DrinkService.remove(drink_id)
+    redirect_to user_drinks_url(drink.user)
   end
 
   private
@@ -25,7 +25,11 @@ class CoffeesController < ApplicationController
     params[:user_id]
   end
 
-  def coffee_id
+  def drink_id
     params[:id]
+  end
+
+  def drink_params
+    params.require(:drink).permit(:category)
   end
 end

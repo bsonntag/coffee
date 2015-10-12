@@ -11,7 +11,7 @@
     <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>
 
-  <div class="User-line User-coffees" onclick="goTo('<%= user_coffees_path(@user) %>')">
+  <div class="User-line User-coffees" onclick="goTo('<%= user_drinks_path(@user) %>')">
     <%= image_tag "mug.png" %>
     <p class="User-text"><%= @user.coffees.count %></p>
   </div>
@@ -27,7 +27,8 @@
     </div>
   </form>
 
-  <form class="User-action" method="POST" action="<%= user_coffees_path(@user) %>">
+  <form class="User-action" method="POST" action="<%= user_drinks_path(@user) %>">
+    <input type="hidden" id="drink_category" name="drink[category]" value="coffee"></input>
     <input class="btn btn-default" type="submit" value="Add coffee"></input>
   </form>
 

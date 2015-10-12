@@ -1,0 +1,78 @@
+$drinks-padding: 10px;
+$drinks-actions-padding: 20px;
+$drinks-table-side-padding: 80px;
+
+$drinks-row-border-width: 1px;
+
+$drinks-row-border-color: #999;
+$drinks-row-stripe-color: #F0F0F0;
+$drinks-row-hover-color: #DDD;
+
+$drinks-title-fontsize: 30px;
+
+.Drinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $drinks-padding 0;
+}
+
+.Drinks-title {
+  padding-bottom: $drinks-padding;
+
+  font-size: $drinks-title-fontsize;
+}
+
+.Drinks-table {
+  border-collapse: collapse;
+}
+
+.Drinks-header {
+  > th {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  > th:first-child {
+    padding-left: $drinks-table-side-padding;
+  }
+
+  > th:last-child {
+    padding-right: $drinks-table-side-padding;
+  }
+}
+
+.Drinks-row {
+  border: solid $drinks-row-border-color;
+  border-width: $drinks-row-border-width 0;
+
+  &:nth-of-type(2n+1) {
+    background-color: $drinks-row-stripe-color;
+  }
+
+  &:hover {
+    background-color: $drinks-row-hover-color;
+  }
+
+  > td {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  > td:first-child {
+    padding-left: $drinks-table-side-padding;
+  }
+
+  > td:last-child {
+    padding-right: $drinks-table-side-padding;
+  }
+}
+
+.Drinks-remove {
+  top: 2px;
+}
+
+.Drinks-actions {
+  padding-top: $drinks-actions-padding;
+}
