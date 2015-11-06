@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = UserService.find(user_id)
+    @products = ProductService.all
   end
 
   def new

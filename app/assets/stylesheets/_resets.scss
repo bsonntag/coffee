@@ -1,3 +1,5 @@
+@import "./config";
+
 *,
 *::before,
 *::after {
@@ -8,12 +10,12 @@
 
 html,
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: $background-color;
+  color: $text-color-normal;
   font-family: verdana, arial, helvetica, sans-serif;
   height: 100%;
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: $font-size-normal;
+  line-height: $line-height-normal;
 }
 
 body {
@@ -29,7 +31,7 @@ h3 {
 p {
   margin: 0;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 24px;
+  font-size: $font-size-large;
 }
 
 ul,

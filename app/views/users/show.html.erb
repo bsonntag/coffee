@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="User-info">
   <div class="User-line User-name">
     <i class="fa fa-3x fa-user"></i>
@@ -11,19 +9,14 @@
     <p class="User-text"><%= number_to_currency(@user.credit / 100.0, unit: '€') %></p>
   </div>
 
-  <div class="User-line User-drinks" onclick="goTo('<%= user_drinks_path(@user) %>')">
-    <i class="fa fa-3x fa-coffee"></i>
-    <p class="User-text"><%= @user.coffees.count %></p>
-  </div>
-
-  <div class="User-line User-drinks" onclick="goTo('<%= user_drinks_path(@user) %>')">
-    <i class="fa fa-3x fa-tint"></i>
-    <p class="User-text"><%= @user.waters.count %></p>
+  <div class="User-line User-orders" onclick="goTo('<%= user_orders_path(@user) %>')">
+    <i class="fa fa-3x fa-shopping-cart"></i>
+    <p class="User-text"><%= @user.orders.count %></p>
   </div>
 </div>
 
 <div class="User-actions">
-  <form class="User-action" method="POST" action="/users/<%= @user.id %>/money">
+  <form class="User-action User-money" method="POST" action="/users/<%= @user.id %>/money">
     <div class="input-group">
       <input class="form-control" type="number" id="user_money" name="user[money]" value="50"></input>
       <span class="input-group-btn">
@@ -32,15 +25,14 @@
     </div>
   </form>
 
-  <form class="User-action" method="POST" action="<%= user_drinks_path(@user) %>">
-    <input type="hidden" id="drink_category" name="drink[category]" value="coffee"></input>
-    <input class="btn btn-default" type="submit" value="Add Coffee"></input>
-  </form>
-
-  <form class="User-action" method="POST" action="<%= user_drinks_path(@user) %>">
-    <input type="hidden" id="drink_category" name="drink[category]" value="water"></input>
-    <input class="btn btn-default" type="submit" value="Add Water"></input>
-  </form>
+  <div class="User-products">
+    <% @products.each do |product| %>
+      <form class="User-product" method="POST" action="<%= user_orders_path(@user) %>">
+        <input type="hidden" id="order_product_id" name="order[product_id]" value="<%= product.id %>"/>
+        <input class="btn btn-default" type="submit" value="Add <%= product.name %>"/>
+      </form>
+    <% end %>
+  </div>
 
   <div class="User-action" >
     <%= link_to 'Edit', edit_user_path(@user.to_model) %> |

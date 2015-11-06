@@ -1,0 +1,39 @@
+<h1>Products</h1>
+
+<div class="Products">
+  <table class="Products-table">
+    <thead>
+      <tr>
+        <th class="Products-header"></th>
+        <th class="Products-header">Name</th>
+        <th class="Products-header">Price</th>
+        <th class="Products-header"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="Products-row" onclick="goTo('<%= edit_product_path(product) %>')">
+          <td>
+            <% if !product.icon.empty? %>
+              <i class="fa <%= product.icon %>"/>
+            <% end %>
+          </td>
+          <td><%= product.name %></td>
+          <td>
+            <%= number_to_currency(product.price / 100.0, unit: '€') %>
+          </td>
+          <td>
+            <%= link_to(product_path(product), method: :delete) do %>
+              <span class="Products-remove glyphicon glyphicon-remove-circle"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

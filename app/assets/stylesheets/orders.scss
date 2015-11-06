@@ -1,0 +1,89 @@
+@import "./config";
+
+$orders-padding: 10px;
+$orders-actions-padding: 20px;
+$orders-table-side-padding: 80px;
+
+$orders-row-border-width: 1px;
+
+$orders-row-border-color: #999;
+$orders-row-stripe-color: #F0F0F0;
+$orders-row-hover-color: #DDD;
+
+$orders-title-fontsize: 30px;
+
+.Orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $orders-padding 0;
+}
+
+.Orders-title {
+  padding-bottom: $orders-padding;
+
+  font-size: $orders-title-fontsize;
+}
+
+.Orders-table {
+  border-collapse: collapse;
+}
+
+.Orders-header {
+  > th {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  > th:first-child {
+    padding-left: $orders-table-side-padding;
+  }
+
+  > th:last-child {
+    padding-right: $orders-table-side-padding;
+  }
+}
+
+.Orders-row {
+  border: solid $orders-row-border-color;
+  border-width: $orders-row-border-width 0;
+
+  &:nth-of-type(2n+1) {
+    background-color: $orders-row-stripe-color;
+  }
+
+  &:hover {
+    background-color: $orders-row-hover-color;
+  }
+
+  > td {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  > td:first-child {
+    padding-left: $orders-table-side-padding;
+  }
+
+  > td:last-child {
+    padding-right: $orders-table-side-padding;
+  }
+}
+
+.Orders-remove {
+  top: 2px;
+}
+
+.Orders-actions {
+  padding-top: $orders-actions-padding;
+}
+
+.Order-type {
+  color: $text-color-normal;
+
+  &:hover, &:focus {
+    color: $text-color-normal;
+    text-decoration: none;
+  }
+}

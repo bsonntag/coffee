@@ -17,7 +17,7 @@ $user-warn-color: #D9534F;
   display: flex;
   align-items: center;
 
-  padding: $user-padding;
+  padding: 0 $user-padding;
 }
 
 .User-text {
@@ -27,17 +27,33 @@ $user-warn-color: #D9534F;
   margin: 0;
 }
 
-.User-drinks {
+.User-orders {
   cursor: pointer;
+}
+
+.User-money {
+  width: $user-actions-width;
+}
+
+.User-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.User-product {
+  padding: 10px;
+
+  > .btn {
+    width: 140px;
+  }
 }
 
 .User-actions {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: $user-actions-width;
-  padding: $user-padding 0;
 }
 
 .User-action {

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   after_initialize :default_values
 
-  has_many :drinks
+  has_many :orders
 
   validates :name, presence: true
   validates :money, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
@@ -10,18 +10,10 @@ class User < ActiveRecord::Base
     money - spent
   end
 
-  def coffees
-    drinks.coffees
-  end
-
-  def waters
-    drinks.waters
-  end
-
   private
 
   def spent
-    drinks.map{ |drink| drink.price }.reduce(0, :+)
+    orders.map{ |order| order.product.price }.reduce(0, :+)
   end
 
   def default_values

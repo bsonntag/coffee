@@ -1,12 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <div class="Users">
   <table class="Users-table">
     <thead>
       <tr class="Users-header">
         <th>Name</th>
         <th>Credit</th>
-        <th>Coffees</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +13,6 @@
           <td class="<%= (user.credit < 0 ? 'User--warn' : '') %>">
             <%= number_to_currency(user.credit / 100.0, unit: '€') %>
           </td>
-          <td><%= user.coffees.count %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+coffee:
+  name: Coffee
+  category: Drink
+  price: 40
+
+water:
+  name: Water
+  category: Drink
+  price: 20

@@ -1,0 +1,44 @@
+<div class="Orders">
+  <% if @orders.empty? %>
+    <h2 class="Orders-title"><%= @user.name %> has no drinks.</h2>
+  <% else %>
+    <h2 class="Orders-title">Orders of <%= @user.name %></h2>
+
+    <table class="Orders-table">
+      <thead>
+        <tr class="Orders-header">
+          <th></th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr class="Orders-row">
+            <td>
+              <% if !order.product.icon.empty? %>
+                <i class="fa <%= order.product.icon %>"/>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to order.product.name, user_orders_path(@user, filter: order.product.name), class: 'Order-type' %>
+            </td>
+            <td><%= order.time %></td>
+            <td><%= order.date %></td>
+            <td>
+              <%= link_to(user_order_path(@user, order), method: :delete) do %>
+                <span class="Orders-remove glyphicon glyphicon-remove-circle"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <div class="Orders-actions">
+    <%= link_to 'Back', user_path(@user)  %>
+  </div>
+</div>

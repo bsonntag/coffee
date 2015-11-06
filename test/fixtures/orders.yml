@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  price: 1
-  category: coffee
+  user: john
+  product: coffee
 
 two:
-  user_id: 1
-  price: 1
-  category: water
+  user_id: jane
+  product: water
