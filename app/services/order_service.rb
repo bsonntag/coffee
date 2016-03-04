@@ -1,4 +1,8 @@
 class OrderService
+  def self.find(user, order_id)
+    Order.find_by(id: order_id, user: user)
+  end
+
   def self.orders_from(user, options)
     orders = user.orders.order(created_at: :desc)
     if options[:product_name]

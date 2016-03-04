@@ -4,6 +4,17 @@ class OrdersController < ApplicationController
     @orders = OrderService.orders_from(@user, { product_name: params[:filter] })
   end
 
+  def show
+    respond_to do |format|
+      format.html { redirect_to user_orders_url }
+      format.json do
+        @user = UserService.find(user_id)
+        @order = OrderService.find(@user, order_id)
+        format.json { render :show }
+      end
+    end
+  end
+
   def create
     user = UserService.find(user_id)
     order = OrderService.create(user_id, product_id)
