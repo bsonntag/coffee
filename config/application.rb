@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
+SECRET = ENV['SECRET']
+
 module CoffeeApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

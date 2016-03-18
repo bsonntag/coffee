@@ -15,10 +15,27 @@
     <%= f.label :name, class: 'Form-label input-group-addon' %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
+
+  <div class="Form-group input-group">
+    <%= f.label :email, class: 'Form-label input-group-addon' %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
   <div class="Form-group input-group">
     <%= f.label :money, class: 'Form-label input-group-addon' %>
     <%= f.number_field :money, class: 'form-control' %>
   </div>
+
+  <div class="Form-group input-group">
+    <%= f.label :password, class: 'Form-label input-group-addon' %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="Form-group input-group">
+    <%= f.label :confirmation, class: 'Form-label input-group-addon' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
   <div class="Form-actions">
     <%= f.submit class: 'Form-action btn btn-primary' %>
     <% if(@user.new_record?) %>

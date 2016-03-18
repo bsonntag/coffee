@@ -1,5 +1,5 @@
 $form-padding: 10px;
-$form-label-width: 70px;
+$form-label-width: 110px;
 
 .Form {
   display: flex;
@@ -14,7 +14,6 @@ $form-label-width: 70px;
 
 .Form-label {
   width: $form-label-width;
-  text-align: right;
 }
 
 .Form-actions {

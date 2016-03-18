@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<%= form_tag('/login', method: 'post', class: 'Form') do %>
+  <div class="Form-group input-group">
+    <%= label_tag :email, 'Email', class: 'Form-label input-group-addon' %>
+    <%= email_field_tag :email, nil, class: 'form-control', placeholder: 'example@example.com' %>
+  </div>
+
+  <div class="Form-group input-group">
+    <%= label_tag :password, 'Password', class: 'Form-label input-group-addon' %>
+    <%= password_field_tag :password, nil, class: 'form-control', placeholder: '********' %>
+  </div>
+
+  <div class="Form-actions">
+    <%= submit_tag 'Login', class: 'Form-action btn btn-primary' %>
+    <%= link_to 'Register', new_user_url, class: "Form-action btn btn-danger" %>
+  </div>
+<% end %>

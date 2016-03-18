@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'dotenv-rails'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'jwt'
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
