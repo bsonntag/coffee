@@ -4,8 +4,10 @@ coffee:
   name: Coffee
   category: Drink
   price: 40
+  icon: ''
 
 water:
   name: Water
   category: Drink
   price: 20
+  icon: ''
