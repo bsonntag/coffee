@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'cancancan', '~> 1.10'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.0'

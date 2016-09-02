@@ -10,6 +10,7 @@ class SessionService
   end
 
   def self.validate(token)
+    return if token.nil?
     decoded = JWT.decode(token, SECRET, 'HS256')
     if decoded
       get_user(decoded.first)

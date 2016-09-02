@@ -22,21 +22,19 @@ class UserService
     user
   end
 
-  def self.update(user_id, user_params)
-    user = User.find(user_id)
+  def self.update(user, user_params)
     user.update(user_params)
     user
   end
 
-  def self.add_money(user_id, money)
-    user = User.find(user_id)
+  def self.add_money(user, money)
     user.money += money
     user.save
     user
   end
 
-  def self.remove(user_id)
-    user = User.find(user_id)
+  def self.remove(user)
     user.destroy
+    user
   end
 end

@@ -17,14 +17,13 @@ class ProductService
     product
   end
 
-  def self.update(product_id, product_params)
-    product = Product.find(product_id)
+  def self.update(product, product_params)
     product.update(product_params)
     product
   end
 
-  def self.remove(product_id)
-    product = Product.remove(product_id)
+  def self.remove(product)
     product.destroy
+    product
   end
 end

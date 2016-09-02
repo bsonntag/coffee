@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
+  rescue_from CanCan::AccessDenied do |exception|
+    puts exception.message
+    respond_to do |format|
+      format.html { redirect_to login_url, notice: 'Please login first' }
+      format.json { render json: { message: exception.message }, status: :unauthorized }
+    end
+  end
+
   def current_user
     @current_user = SessionService.validate(auth_token)
   end

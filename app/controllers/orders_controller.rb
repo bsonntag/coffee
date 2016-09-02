@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
   def index
     @user = UserService.find(user_id)
+    authorize! :read, @user
+
     @orders = OrderService.orders_from(@user, { product_name: params[:filter] })
+    authorize! :read, @orders
   end
 
   def show
@@ -9,7 +12,11 @@ class OrdersController < ApplicationController
       format.html { redirect_to user_orders_url }
       format.json do
         @user = UserService.find(user_id)
+        authorize! :read, @user
+
         @order = OrderService.find(@user, order_id)
+        authorize! :read, @order
+
         format.json { render :show }
       end
     end
@@ -17,7 +24,10 @@ class OrdersController < ApplicationController
 
   def create
     user = UserService.find(user_id)
+    authorize! :update, user
+
     order = OrderService.create(user_id, product_id)
+    authorize! :create, order
 
     respond_to do |format|
       if order.persisted?
@@ -31,7 +41,13 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    OrderService.remove(order_id)
+    user = UserService.find(user_id)
+    authorize! :update, user
+
+    order = OrderService.find(user_id, order_id)
+    authorize! :destroy, order
+
+    OrderService.remove(order)
 
     respond_to do |format|
       format.html { redirect_to user_orders_url, notice: 'Order was successfully deleted.' }

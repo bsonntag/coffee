@@ -18,8 +18,7 @@ class OrderService
     order
   end
 
-  def self.remove(order_id)
-    order = Order.find(order_id)
+  def self.remove(order)
     order.destroy
     order
   end
